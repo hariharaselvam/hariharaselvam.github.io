@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="title">Hariharaselvam Balasubramanian</title>
+    <link rel="icon" href="images/icon/favicon.ico">
+    <meta name="description" content="Hariharaselvam Balasubramanian - full stack developer with open source">
+    <meta name="keywords" content="Hariharaselvam, Balasubramanian, SoftwareEngineer, Developer, Web designer, Web developer">
+    <meta name="author" content="Hariharaselvam Balasubramanian">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    
+    <script type="text/javascript" src="library/modernizr/modernizr.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+    
+    <div id="preloader"></div>
+    
+    <div class="container">
+    
+        <div class="color-container">
+            <h2>Welcome to Hariharaselvam's page</h2>
+            <h2>Choose Your Color</h2>
+            <ul class="colors clearfix">
+                <li><a href="index.red.html"  class="red"></a></li>
+                <li><a href="index.green.html"  class="green"></a></li>
+                <li><a href="index.blue.html"  class="blue"></a></li>
+                <li><a href="index.yellow.html"  class="yellow"></a></li>
+                <li><a href="index.android_green.html"  class="and-green"></a></li>
+                <li><a href="index.html" class="gothic"></a></li>
+            </ul>
+        </div>
+    
+    </div>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            'use strict';
+        
+            $(window).load(function () {
+                $('#preloader').delay(350).fadeOut('fast', function () {
+                    $('.color-container').delay(100).fadeIn('slow');
+                });
+            });
+        
+        });
+
+    </script>
+</body>    
+</html>
