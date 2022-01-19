@@ -27,8 +27,11 @@
 <body>
 <div id="app">
   <h1>Wordle</h1>
+  <p>
+    Find a {{ count }} letter
+    <br>
 
-
+  </p>
   <input type="text"
          v-model="word"
          class="wordle"
@@ -55,6 +58,7 @@
     <li>Letter in <span style="background-color:red">Red </span>: The letter not available on the word</li>
   </ul>
   <span>{{ message }}</span>
+  <small>* Mobile users hit enter after {{ count }}th letter</small>
 </div>
 <script>
   new Vue({
