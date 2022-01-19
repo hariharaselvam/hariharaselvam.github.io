@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+
+        check_leaf_year = function (year) {
+          return year % 4 === 0
+        }
+        get_first_day = function(month, year) {
+          var d = new Date(month+"-1-"+year)
+          return d.getDay()
+        }
+        number_of_days = function(month, year) {
+          var month_days = [31,28,31,30,31,30,31,31,30,31,30,31]
+          if (check_leaf_year(year) & month===2) { return 29 }
+          return month_days[month-1]
+        }
+        number_of_cells = function(month, year) {
+          var total_cells = get_first_day(month,year) + number_of_days(month,year)
+          var remaining_days = total_cells % 7
+          if( remaining_days > 0) {
+            total_cells += ( 7 - remaining_days)
+          }
+          return total_cells
+        }
+        number_of_weeks = function(month, year) {
+          return number_of_cells(month,year) / 7
+        }
+        get_cells = function(month, year) {
+          var cells = []
+          var last_day = number_of_days(month, year)
+          var first_day = get_first_day(month, year)
+          var balance = 0
+          var total = first_day+last_day
+          if(total % 7 > 0){
+            balance = 7 - ( total % 7)
+          }
+          for(let i=0;i<first_day;i++){
+            cells.push('')
+          }
+          for(let i=0;i<last_day;i++){
+            cells.push(i+1)
+          }
+          for(let i=0;i<balance;i++){
+            cells.push('')
+          }
+          return cells
+        }
+        set_date_info = function (date,month,year){
+          document.getElementById('date_title').innerText = date+' - '+month+' - '+year
+          if(parseInt(month)<10) {
+            month = '0'+month
+          }
+          let imageURl = 'calendar/'+date+month+year+'.jpg'
+          document.getElementById('date_image').setAttribute('src',imageURl)
+          console.log(imageURl)
+        }
+        draw_calender = function (month, year) {
+            var weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+            var cells = get_cells(month, year)
+            var cal_html = '<table class="table"><tr>'
+            for(let i=0;i<7;i++){
+              cal_html += '<th>'+weekdays[i]+'</th>'
+            }
+            cal_html += '</tr>'
+            var cell_index = 0
+            for(let w=0;w<5;w++){
+              cal_html += '<tr>'
+              for(let d=0;d<7;d++){
+                let day_content = cells[cell_index]
+                if(day_content!==''){
+                  let content = '<span onclick="set_date_info('+day_content+','+month+','+year+')"'
+                  content += 'style="cursor:pointer;height:30px;width:40px;"'
+                  content += 'data-toggle="modal" data-target="#calendar_modal">'+day_content+'</span>'
+                  day_content = content
+                }
+                cal_html += '<td>'+day_content+'</td>'
+                cell_index++
+              }
+              cal_html += '</tr>'
+            }
+
+            cal_html += '</table>'
+            document.getElementById('calendar').innerHTML = cal_html
+        }
+    </script>
+</head>
+<body onload="draw_calender(1,2020)">
+<div class="container">
+    <ul class="pager">
+    <li class="previous"><a href="#">Previous</a></li>
+    <li class="next"><a href="#">Next</a></li>
+  </ul>
+<div id="calendar" class="table-responsive">
+
+</div>
+    <div class="modal fade" id="calendar_modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="date_title"> </h4>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <img src="" id="date_image">
+            </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        generate_link = function () {
+            var phonenumber = document.getElementById('mobilenumber').value
+            var link = "<a href='https://api.whatsapp.com/send?phone="+phonenumber+"'>Click Here</a>"
+            document.getElementById('walink').innerHTML = link
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="mobilenumber">
+<button onclick="generate_link()">Get link</button>
+<span id="walink"></span>
+</body>
+</html>
