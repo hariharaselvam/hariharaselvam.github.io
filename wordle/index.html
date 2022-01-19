@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wordle</title>
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    input[type=text] {
+      padding: 12px 10px;
+      font-weight: bold;
+      font-size: larger;
+      border: 2px solid blue;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .table_cell {
+      padding: 10px 15px;
+      text-align: center;
+      font-size: larger;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>Wordle</h1>
+
+
+  <input type="text"
+         v-model="word"
+         class="wordle"
+         :maxlength="count"
+         style="text-transform: uppercase" :disabled="disabled">
+  <br>
+  <br>
+  <table>
+
+    <tr v-for="(rowItem, index) in attempts"
+        :key="index">
+      <td v-for="(cell, rowIndex) in rowItem"
+          class="table_cell"
+          :style="cell.cell_class"
+          :key="rowIndex">
+        {{ cell.cell_value }}
+      </td>
+    </tr>
+  </table>
+  <ul>
+    <li>Letter in <span style="background-color:green">Green </span>: The letter is correct and placed on right place
+    </li>
+    <li>Letter in <span style="background-color:orange">Orange </span>: The letter is misplaced</li>
+    <li>Letter in <span style="background-color:red">Red </span>: The letter not available on the word</li>
+  </ul>
+  <span>{{ message }}</span>
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      info: null,
+      count: 0,
+      word: '',
+      answer: '',
+      attempts: [],
+      message: '',
+      disabled: false
+    },
+    watch: {
+      answer: function () {
+        this.count = this.answer.length
+      },
+      word: function () {
+        if (this.word.length === this.count) {
+          const upper_word = this.word.toUpperCase()
+          if (upper_word === this.answer) {
+            this.message = 'Very good! You are the champion!'
+            this.disabled = true
+          } else {
+            this.message = 'Try again!'
+            var attempt = []
+            for (let i = 0; i < this.count; i++) {
+              var cell_value = upper_word[i]
+              var cell_class = ''
+              if (cell_value === this.answer[i]) {
+                cell_class = 'background-color:green'
+              } else if (this.answer.includes(cell_value)) {
+                cell_class = 'background-color:orange'
+              } else {
+                cell_class = 'background-color:red'
+              }
+              attempt.push({cell_class: cell_class, cell_value: cell_value})
+            }
+            this.attempts.push(attempt)
+          }
+        }
+      }
+    },
+    mounted() {
+      axios.get('answers.json')
+              .then(response => this.answer = window.atob(response.data))
+    }
+  })
+</script>
+</body>
+</html>
