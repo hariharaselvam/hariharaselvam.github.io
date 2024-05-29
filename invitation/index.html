@@ -1,18 +1,142 @@
 <!DOCTYPE html>
+<!-- saved from url=(0087)https://cdpn.io/hariharaselvam-the-styleful/fullpage/Jjqdjwz?nocache=true&view=fullpage -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-  <script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
-  <script src="https://assets.codepen.io/16327/Observer.min.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="images/icon/favicon.ico">
 
-  <link type="text/css" rel="stylesheet" href="styles.css"/>
-  <script src="scripts.js"></script>
+
+
+  <script src="page_scripts.js"></script>
+
+
+  <title>Lakshaya Vilas - invitation</title>
+
+  <link rel="canonical" href="https://codepen.io/hariharaselvam-the-styleful/pen/Jjqdjwz">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/">
+  <link href="./css2" rel="stylesheet">
+  <link rel="stylesheet" href="./normalize.min.css">
+
+  <link rel="stylesheet" href="./all.min.css">
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      color: white;
+      background: black;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(1rem, 5vw, 5rem);
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0em;
+      margin-right: -0.5em;
+      color: #cccccc;
+      width: 90vw;
+      max-width: 1200px;
+    }
+
+    header {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      width: 100%;
+      z-index: 3;
+      height: 7em;
+      font-size: clamp(0.66rem, 2vw, 1rem);
+      letter-spacing: 0.5em;
+    }
+
+    section {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      position: fixed;
+      visibility: hidden;
+    }
+
+    section .outer,
+    section .inner {
+      width: 100%;
+      height: 100%;
+      overflow-y: hidden;
+    }
+
+    section .bg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    section .bg h2 {
+      z-index: 2;
+    }
+
+    section .bg .clip-text {
+      overflow: hidden;
+    }
+
+    .first .bg {
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(images/top.png);
+    }
+
+    .second .bg {
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(images/entrance.png);
+    }
+
+    .third .bg {
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(images/home1.png);
+    }
+
+    .fourth .bg {
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(images/home2.png);
+    }
+
+    .fifth .bg {
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%), url(images/home3.png);
+      background-position: 50% 45%;
+    }
+
+    h2 * {
+      will-change: transform;
+    }
+  </style>
+
+  <script>
+    window.console = window.console || function (t) {
+    }
+  </script>
+
 
 </head>
-<body>
+
+<body translate="no">
 <!--
 Sections animate in and out on scroll. Scroll up or down and the sections will wrap around after hitting the start or end. Uses GSAP for the animations.
 -->
@@ -21,51 +145,197 @@ Sections animate in and out on scroll. Scroll up or down and the sections will w
   <div>Invitation</div>
   <div><a href="https://codepen.io/BrianCross/pen/PoWapLP">Lakshaya Vilas</a></div>
 </header>
-<section class="first">
-  <div class="outer">
-    <div class="inner">
-      <div class="bg one">
-        <h2 class="section-heading">Scroll down</h2>
+<section class="first" style="z-index: 0; opacity: 0; visibility: hidden;">
+  <div class="outer" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+    <div class="inner" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+      <div class="bg one" style="translate: none; rotate: none; scale: none; transform: translate(0%, -15%);">
+        <h2 class="section-heading" style="">
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            House-warming Invitation
+          </div>
+        </h2>
       </div>
     </div>
   </div>
 
 </section>
-<section class="second">
-  <div class="outer">
-    <div class="inner">
-      <div class="bg">
-        <h2 class="section-heading">June 10, 2024. Monday</h2>
+<section class="second" style="z-index: 0; opacity: 0; visibility: hidden;">
+  <div class="outer" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+    <div class="inner" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+      <div class="bg" style="translate: none; rotate: none; scale: none; transform: translate(0%, -15%);">
+        <h2 class="section-heading" style="">
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            June 10th, 2024
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            Monday
+          </div>
+        </h2>
       </div>
     </div>
   </div>
 </section>
-<section class="third">
-  <div class="outer">
-    <div class="inner">
-      <div class="bg">
-        <h2 class="section-heading">North Road, Asilapuram ( Murambu )</h2>
+<section class="third" style="z-index: 1; opacity: 1; visibility: inherit;">
+  <div class="outer" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+    <div class="inner" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+      <div class="bg" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+        <h2 class="section-heading" style="">
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <b>"LAKSHAYA VILAS"</b>
+            <br>
+            <br>
+            <br>
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            North Main Road, Near Library,
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            Asilapuram ( Murambu ) 626139
+          </div>
+        </h2>
       </div>
     </div>
   </div>
 </section>
-<section class="fourth">
-  <div class="outer">
-    <div class="inner">
-      <div class="bg">
-        <h2 class="section-heading">6 AM onwards</h2>
+<section class="fourth" style="z-index: 0; opacity: 0; visibility: hidden;">
+  <div class="outer" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+    <div class="inner" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+      <div class="bg" style="translate: none; rotate: none; scale: none; transform: translate(0%, -15%);">
+        <h2 class="section-heading" style="">
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <div style="position:relative;display:inline-block;">
+              4 AM
+            </div>
+            <div style="position:relative;display:inline-block;">
+             On wards
+            </div>
+          </div>
+        </h2>
       </div>
     </div>
   </div>
 </section>
-<section class="fifth">
-  <div class="outer">
-    <div class="inner">
-      <div class="bg">
-        <h2 class="section-heading">You are welcome</h2>
+<section class="fifth" style="z-index: 0; opacity: 0; visibility: hidden;">
+  <div class="outer" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+    <div class="inner" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+      <div class="bg" style="translate: none; rotate: none; scale: none; transform: translate(0%, -15%);">
+        <h2 class="section-heading" style="">
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <div style="position:relative;display:inline-block;">
+              You are
+            </div>
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <div style="position:relative;display:inline-block;">
+              Welcome
+            </div>
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <div style="position:relative;display:inline-block;">
+              Please contact
+            </div>
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <div style="position:relative;display:inline-block;">
+              999 416 89 66
+            </div>
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <div style="position:relative;display:inline-block;">
+              Hari
+            </div>
+          </div>
+          <div class="clip-text" style="display: block; text-align: center; position: relative;">
+            <div style="position:relative;display:inline-block;">
+              Uma
+            </div>
+          </div>
+        </h2>
       </div>
     </div>
   </div>
 </section>
+<script src="./gsap-latest-beta.min.js"></script>
+<script src="./Observer.min.js"></script>
+<script src="./SplitText3.min.js"></script>
+<script id="rendered-js">
+  gsap.registerPlugin(Observer)
+
+  let sections = document.querySelectorAll('section'),
+    images = document.querySelectorAll('.bg'),
+    headings = gsap.utils.toArray('.section-heading'),
+    outerWrappers = gsap.utils.toArray('.outer'),
+    innerWrappers = gsap.utils.toArray('.inner'),
+    splitHeadings = headings.map(heading => new SplitText(heading, {
+      type: 'chars,words,lines',
+      linesClass: 'clip-text'
+    })),
+    currentIndex = -1,
+    wrap = gsap.utils.wrap(0, sections.length),
+    animating
+
+  gsap.set(outerWrappers, {yPercent: 100})
+  gsap.set(innerWrappers, {yPercent: -100})
+
+  function gotoSection (index, direction) {
+    index = wrap(index) // make sure it's valid
+    animating = true
+    let fromTop = direction === -1,
+      dFactor = fromTop ? -1 : 1,
+      tl = gsap.timeline({
+        defaults: {duration: 1.25, ease: 'power1.inOut'},
+        onComplete: () => animating = false
+      })
+
+    if (currentIndex >= 0) {
+      // The first time this function runs, current is -1
+      gsap.set(sections[currentIndex], {zIndex: 0})
+      tl.to(images[currentIndex], {yPercent: -15 * dFactor}).set(sections[currentIndex], {autoAlpha: 0})
+    }
+    gsap.set(sections[index], {autoAlpha: 1, zIndex: 1})
+    tl.fromTo([outerWrappers[index], innerWrappers[index]], {
+        yPercent: i => i ? -100 * dFactor : 100 * dFactor
+      },
+      {
+        yPercent: 0
+      },
+      0).fromTo(images[index], {yPercent: 15 * dFactor}, {yPercent: 0}, 0).fromTo(splitHeadings[index].chars, {
+        autoAlpha: 0,
+        yPercent: 150 * dFactor
+      },
+      {
+        autoAlpha: 1,
+        yPercent: 0,
+        duration: 1,
+        ease: 'power2',
+        stagger: {
+          each: 0.02,
+          from: 'random'
+        }
+      },
+
+      0.2)
+
+    currentIndex = index
+  }
+
+  Observer.create({
+    type: 'wheel,touch,pointer',
+    wheelSpeed: -1,
+    onDown: () => !animating && gotoSection(currentIndex - 1, -1),
+    onUp: () => !animating && gotoSection(currentIndex + 1, 1),
+    tolerance: 10,
+    preventDefault: true
+  })
+
+
+  gotoSection(0, 1)
+
+  // original: https://codepen.io/BrianCross/pen/PoWapLP
+  // horizontal version: https://codepen.io/GreenSock/pen/xxWdeMK
+  //# sourceURL=pen.js
+</script>
+
+
 </body>
 </html>
